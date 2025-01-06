@@ -9,7 +9,9 @@ source_channel = '@sourcetradebbl'  # VIP channel ka username ya ID
 target_chat = '@bottradesystem'  # Apne bot/group ka username ya ID
 phone_number = '+916350242728'
 # Telegram client setup
-client = TelegramClient('bot_session', api_id, api_hash)
+client = TelegramClient('bot_session', api_id, api_hash) 
+# Client login ko non-interactive mode mein karne ke liye
+client.start(phone=phone_number)
 
 @client.on(events.NewMessage(chats=source_channel))
 async def forward_message(event):
