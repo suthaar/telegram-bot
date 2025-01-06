@@ -7,7 +7,7 @@ api_hash = '56237985ec088ca7aedfbfc34d448647'  # Yahan apna API Hash paste karei
 # Source (VIP Channel) and Target (Your Bot/Group)
 source_channel = '@sourcetradebbl'  # VIP channel ka username ya ID
 target_chat = '@bottradesystem'  # Apne bot/group ka username ya ID
-
+phone_number = '+916350242728'
 # Telegram client setup
 client = TelegramClient('bot_session', api_id, api_hash)
 
@@ -18,9 +18,7 @@ async def forward_message(event):
         print(f"Forwarded: {event.message.text}")
     except Exception as e:
         print(f"Error: {e}")
-# Example jisme user se phone number lena tha
-phone_number = '+916350242728'  # Yahan apna phone number directly likh dei
-# Start the client
+        
 client.start()
 print("Bot is running...")
 client.run_until_disconnected()
