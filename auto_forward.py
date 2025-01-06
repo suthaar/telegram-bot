@@ -18,7 +18,8 @@ async def forward_message(event):
         print(f"Forwarded: {event.message.text}")
     except Exception as e:
         print(f"Error: {e}")
-
+# Example jisme user se phone number lena tha
+phone_number = '+916350242728'  # Yahan apna phone number directly likh dei
 # Start the client
 client.start()
 print("Bot is running...")
