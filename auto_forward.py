@@ -11,7 +11,19 @@ phone_number = '+916350242728'
 # Telegram client setup
 client = TelegramClient('bot_session', api_id, api_hash) 
 # Client login ko non-interactive mode mein karne ke liye
-client.start(phone=phone_number)
+# Non-interactive login
+async def start_client():
+    # Client ko connect karte hain
+    await client.connect()
+
+    # Check karte hain ki user already authorized hai ya nahi
+    if not await client.is_user_authorized():
+        # Agar authorized nahi hai, toh phone number ke liye code request karte hain
+        print("Sending OTP to the phone number...")
+        await client.send_code_request(phone_number)
+
+        # OTP ko automatically handle karna
+        await client.sign_in(phone_number)
 
 @client.on(events.NewMessage(chats=source_channel))
 async def forward_message(event):
