@@ -1,4 +1,4 @@
- from telethon import TelegramClient, events
+from telethon import TelegramClient, events
 
 # Telegram API credentials
 api_id = '14045006'  # Yahan apna API ID paste karein
